@@ -1,4 +1,4 @@
-package de.qcademy.calculator;
+/*package de.qcademy.calculator;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -11,7 +11,7 @@ public class reserve {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
             // andere Operationen noch übrig -*/%
-            Pattern plusOppattern = Pattern.compile("\\s*(\\d+)\\s*\\+\\s*(\\d+)|\\s*\\+\\s*(\\d+)|\\s*\\s*(\\d+)");
+         /*   Pattern plusOppattern = Pattern.compile("\\s*(\\d+)\\s*\\+\\s*(\\d+)|\\s*\\+\\s*(\\d+)|\\s*\\s*(\\d+)");
             //pattern erlaubt uns + operationen zu erkennen \\s leerzeichen  \\d  Zahlen \\+ operationen
             //im pattern muster kann man bestimmte Teile gruppieren mit klammer ()
 

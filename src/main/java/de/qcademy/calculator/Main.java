@@ -5,20 +5,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
-
+//funktioniert !!!!!!!!!
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // andere Operationen noch übrig -*/%
         Pattern operationPattern = Pattern.compile("\\s*(\\d+)\\s*([-+*/%])\\s*(\\d+)\\s*");
 
-        //pattern erlaubt uns + operationen zu erkennen \\s leerzeichen  \\d  Zahlen \\+ operationen
+        //pattern erlaubt uns + operationen in Strings zu erkennen \\s leerzeichen  \\d  Zahlen \\+ operationen
         //im pattern muster kann man bestimmte Teile gruppieren mit klammer ()
+        //Matcher ermöglicht uns Übereinstimmungen in Mustern aus den Eingaben zu  ermitteln
 
         Pattern quitPattern = Pattern.compile("^\\s*:q\\s*$");
         //pattern für die quit funktion implementieren
         //^ beginnt mit :q$ endet mit :q$
-        boolean calculatorStopped = false;
-        while (!calculatorStopped) {
+        boolean calculatorStopped = false;//wenn das Taschenrechner gestoppt wird wird die Variable true gesetzt
+        while (!calculatorStopped) {//während das Taschenrechner nicht gestoppt ist sollte eine neue eingabe erfolgen
 
             //operatoren implementieren
             System.out.println("Ausdruck eingeben");
