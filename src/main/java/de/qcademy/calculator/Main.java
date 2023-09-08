@@ -10,10 +10,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // andere Operationen noch übrig -*/%
         Pattern operationPattern = Pattern.compile("\\s*(\\d+)\\s*([-+*/%])\\s*(\\d+)\\s*");
-
-        //pattern erlaubt uns + operationen in Strings zu erkennen \\s leerzeichen  \\d  Zahlen \\+ operationen
+        ////pattern erlaubt uns zu erkennen:
+        //\\s*: Dieser Teil sucht erneut nach beliebig vielen Leerzeichen (einschließlich keiner)
+        //(\\d+): Dieser Teil sucht nach einer oder mehreren aufeinanderfolgenden Ziffern. Das \\d steht für eine Ziffer (0-9), und das + bedeutet "eins oder mehr"
         //im pattern muster kann man bestimmte Teile gruppieren mit klammer ()
-        //Matcher ermöglicht uns Übereinstimmungen in Mustern aus den Eingaben zu  ermitteln
+
+        //Matcher ermöglicht uns Übereinstimmungen in Mustern aus den Eingaben und Pattern zu ermitteln
 
         Pattern quitPattern = Pattern.compile("^\\s*:q\\s*$");
         //pattern für die quit funktion implementieren
@@ -24,15 +26,13 @@ public class Main {
             //operatoren implementieren
             System.out.println("Ausdruck eingeben");
             String input = scanner.nextLine();
-            Matcher OpMatcher = operationPattern.matcher(input);
-
-            //matcher wird auf input aufgerufen
-            Matcher quitMatcher = quitPattern.matcher(input);
+            Matcher OpMatcher = operationPattern.matcher(input);//Matcher versucht operationen aus dem Pattern  zu finden
+            Matcher quitMatcher = quitPattern.matcher(input);  //matcher wird auf input aufgerufen
 
             if (OpMatcher.matches()) {
                 if (OpMatcher.group(3) != null) {//wenn der 3. gruppe nicht null ist wird Resultat von Gruppe 1 und 2 ausgegeben
                     double firstOperand = Double.parseDouble(OpMatcher.group(1));
-                    String operator = OpMatcher.group(2);
+                    String operator = OpMatcher.group(2);//gruppe operationszeichen
                     double secondOperand = Double.parseDouble(OpMatcher.group(3));//wenn der 3. gruppe nicht null ist wird Resultat von Gruppe 1 und 2 ausgegeben
                     double result = 0;//resultat/ausgangswert der operationen wird 0 gesetzt
                     switch (operator) {//switch case für operator ist übersichtlicher und einfacher zu lesen
